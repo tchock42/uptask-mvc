@@ -1,0 +1,40 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard{ //en cel se queda en vertical
+    background-color: v.$grisClaro;
+
+    @include m.tablet {
+        display:flex; //en tablet se ocupa flex en horizontal
+        height: 100vh; //viewport heigh, altura de pantalla
+    }
+    .principal{
+        flex:1;
+        overflow: scroll;
+    }
+    .contenido{
+        padding: 2rem;
+        .nombre-pagina{
+            font-size: 2.8rem;
+            text-align: center;
+        }
+    }
+    .formulario{
+        input:not([type=submit]){
+            background-color: v.$blanco;
+        }
+        input[type=submit]{
+            @include m.boton(v.$indigo, v.$blanco);
+            padding: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+    }
+    .enlace{
+        color: v.$indigo;
+        &:hover{
+            color: darken(v.$indigo, 20%);
+        }
+    }
+}

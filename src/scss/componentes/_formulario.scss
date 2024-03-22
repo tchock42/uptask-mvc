@@ -1,0 +1,22 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.formulario{
+    margin-top: 5rem;
+    .campo{ //prepara el display para darle flex a los elementos hijo
+        display:flex;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        label{
+            flex: 0 0 10rem; //toma 10rem de base
+        } 
+        input{
+            flex: 1; //factor de crecimiento de 1
+            padding: 1rem;
+            border: none; 
+            background-color: lighten(v.$gris, 40%);
+        }
+    }
+    
+}

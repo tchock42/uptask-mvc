@@ -1,0 +1,55 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.modal{
+    position: absolute; //toma posicion absoluta lo coloca junto al viewport
+    background-color: rgb(0 0 0 / .8); //hace que el  fondo sea  negro semitransparente
+    top: 0; //toma desde las esquinas superiores
+    left: 0;
+    right: 0;
+    bottom: 0;  //hasta inferiores
+    .formulario{
+        max-width: 60rem;
+        background-color: v.$blanco;
+        padding:2rem; 
+        margin: 0 auto; //centra horizontalmente
+        transform: translateY(-30rem);  //mantiene a -30rem (fuera de la ventana). Punto de inicio
+        transition-property: all; //aplicar a transform y opacity
+        transition-timing-function: ease-in-out; //comienza rápido, se alenta y termina rápido
+        transition-duration: 500ms; //dura 5seg la animación
+        opacity: 0;
+        border-radius: 1rem;
+        legend{
+            font-size: 2rem;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        input[type="text"]{
+            border:1px solid v.$gris;
+            border-radius:.5rem;
+        }
+        .opciones{
+            display: flex;
+            justify-content: space-around;
+        }
+        .submit-nueva-tarea{
+            @include m.boton(v.$indigo, v.$blanco);
+        }
+        .cerrar-modal{
+            @include m.boton(v.$naranja, v.$blanco);
+
+        }
+        &.animar{
+            position:relative; //relativo al window
+            top: 50%;
+            transform: translateY(-50%); //recorre 50% la altura del elemento .formulario
+            opacity: 1;
+        }
+        &.cerrar{
+            transform: translateY(-200%); //recorre 50% la altura del elemento .formulario
+            opacity: 0;
+        }
+    }
+}
