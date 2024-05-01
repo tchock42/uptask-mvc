@@ -13,6 +13,7 @@
     },
     "require": {
         "phpmailer/phpmailer": "^6.8",
-        "vlucas/phpdotenv": "^5.6"
+        "vlucas/phpdotenv": "^5.6",
+        "getbrevo/brevo-php": "2.0.0"
     }
 }

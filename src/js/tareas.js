@@ -279,7 +279,7 @@
         datos.append('estado', estado);
         datos.append('proyectoId', obtenerProyecto()); //realmente es la url
         try {
-            const url = `${location.origin}api/tarea/actualizar`;
+            const url = `${location.origin}/api/tarea/actualizar`;
             const respuesta = await fetch(url, { //por default acepta un get, se cambia a post
                  method: 'POST',
                  body: datos

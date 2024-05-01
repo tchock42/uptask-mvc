@@ -29,15 +29,16 @@ class Email{
         $mail->Password = $_ENV['EMAIL_PASS'];       
 
         //recipientes
-        $mail->setFrom('cuentas@uptask.com'); //quien lo envía
-        $mail->addAddress('cuentas@uptask.com', 'UpTask'); //hosting contratado
+        $mail->setFrom('cuentas@uptask.com', 'Admin'); //quien lo envía
+        $mail->addAddress($this->email, $this->nombre); //hosting contratado
         $mail->Subject = 'Confirma tu cuenta';
 
         //set HTML format
         $mail->isHTML(TRUE);
         $mail->CharSet = 'UTF-8';
         $contenido = '<html>';
-        $contenido .= "<p><strong> Hola " . $this->nombre . "</strong> Has creado tu cuenta en UpTask, solo debes confirmarla presionando el siguiente enlace. </p>";
+        $contenido .= "<p><strong> Hola " . $this->nombre . "</strong></p>";
+        $contenido .= "<p> Has creado tu cuenta en UpTask, solo debes confirmarla presionando el siguiente enlace. </p>";
         $contenido .= "<p> Presiona aquí <a href = '" . $_ENV['APP_URL'] . "/confirmar?token=" . $this->token . "'>Confirmar Cuenta</a> </p>";
         $contenido .= "<p> Si tu no solicitaste esta cuenta, puedes ignorar este mensaje</p>";
         $contenido .= '</html>';
@@ -57,8 +58,8 @@ class Email{
         $mail->Password = $_ENV['EMAIL_PASS'];   
         
         //recipientes
-        $mail->setFrom('cuentas@uptask.com'); //quien lo envía
-        $mail->addAddress('cuentas@uptask.com', 'UpTask'); //hosting contratado
+        $mail->setFrom('cuentas@uptask.com', 'Admin'); //quien lo envía
+        $mail->addAddress($this->email, $this->nombre); //hosting contratado
         $mail->Subject = 'reestablece tu contraseña';
 
         //set HTML format
