@@ -29,7 +29,8 @@ class Email{
         $mail->Password = $_ENV['EMAIL_PASS'];       
 
         //recipientes
-        $mail->setFrom('cuentas@uptask.com', 'Admin'); //quien lo envía
+        // $mail->setFrom('cuentas@uptask.com', 'Admin'); //quien lo envía
+        $mail->setFrom('jacob.goca@outlook.com', 'Admin'); //quien lo envía
         $mail->addAddress($this->email, $this->nombre); //hosting contratado
         $mail->Subject = 'Confirma tu cuenta';
 
@@ -58,7 +59,8 @@ class Email{
         $mail->Password = $_ENV['EMAIL_PASS'];   
         
         //recipientes
-        $mail->setFrom('cuentas@uptask.com', 'Admin'); //quien lo envía
+        // $mail->setFrom('cuentas@uptask.com', 'Admin'); //quien lo envía
+        $mail->setFrom('jacob.goca@outlook.com', 'Admin'); //quien lo envía
         $mail->addAddress($this->email, $this->nombre); //hosting contratado
         $mail->Subject = 'reestablece tu contraseña';
 
